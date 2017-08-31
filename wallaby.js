@@ -2,11 +2,11 @@ module.exports = function (w) {
 
   return {
     files: [
-      'src/*.js'
+      'src/**/*.js',
+      '!src/**/*.test.js'
     ],
-
     tests: [
-      'src/*.test.js'
+      'src/**/*.test.js'
     ],
     teardown: function(){
       delete global.window;
