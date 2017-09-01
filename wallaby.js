@@ -8,8 +8,14 @@ module.exports = function (w) {
     tests: [
       'src/**/*.test.js'
     ],
+    testFramework: "mocha",   
+    compilers: {
+      '**/*.js': wallaby.compilers.babel(),
+    },
+
     teardown: function(){
       delete global.window;
-    }
+    },
+    
   };
 };
