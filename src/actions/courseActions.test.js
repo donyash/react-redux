@@ -71,7 +71,7 @@ describe ('Async Actions', () => {
             //this callback declares we are done - tells Mocha framework 
             // async work is complete  (completes the async flow)
             done();
-        })
+        });
 
     });
 });
