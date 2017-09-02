@@ -14,7 +14,7 @@ export function updateCourseSuccess(course){
     return{type: types.UPDATE_COURSE_SUCCESS, course};
 }
 
-
+//thunk
 export function loadCourses(){
     return function (dispatch){
         dispatch (beginAjaxCall());
@@ -30,6 +30,7 @@ export function loadCourses(){
     };
 }
 
+//thunk
 export function saveCourse(course){
     return function (dispatch, getState){
         dispatch (beginAjaxCall());
