@@ -23,6 +23,7 @@ describe('Manage Course Page', () => {
         saveButton.simulate('click');
 
         expect(wrapper.state().errors.title).toBe('Title must be at least 5 characters.');
+        console.log(wrapper.state().errors.title);
         
     });
 
@@ -30,7 +31,7 @@ describe('Manage Course Page', () => {
         const props = {
             authors: [],
             actions: { saveCourse: () => {return Promise.resolve(); }},  //this is a mock
-            course: {id: '', watchHref: '', title: 'This is my title', authorId: '', length: '', category: ''}
+            course: {id: '', watchHref: '', title: 'Title is more than five chars', authorId: '', length: '', category: ''}
         };
 
         const wrapper = mount(<ManageCoursePage {...props} />);
@@ -41,7 +42,7 @@ describe('Manage Course Page', () => {
         saveButton.simulate('click');
 
         expect(wrapper.state().errors.title).toNotIncludeKey;
-        
+        console.log(wrapper.state().errors.title);
     });
 
 });

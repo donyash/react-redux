@@ -42,8 +42,8 @@ export class ManageCoursePage extends React.Component {
             formIsValid = false;
 
             this.setState({errors: errors});
-            return formIsValid;
         }
+        return formIsValid;
     }
 
 
