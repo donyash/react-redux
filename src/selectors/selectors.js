@@ -6,3 +6,10 @@ export function authorsFormattedForDropDown(authors){
    };
 });
 }
+
+
+export function getCourseById(courses, id){
+    const course = courses.filter(course => course.id == id);
+    if(course.length) return course[0];
+    return null;
+}

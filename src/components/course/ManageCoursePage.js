@@ -5,6 +5,7 @@ import * as courseActions from '../../actions/courseActions';
 import CourseForm from './CourseForm';
 import toastr from 'toastr';
 import {authorsFormattedForDropDown} from '../../selectors/selectors';
+import {getCourseById} from '../../selectors/selectors';
 
 export class ManageCoursePage extends React.Component {
     constructor(props, context){
@@ -93,11 +94,12 @@ ManageCoursePage.contextTypes = {
     router: PropTypes.object
 };
 
-function getCourseById(courses, id){
-    const course = courses.filter(course => course.id == id);
-    if(course.length) return course[0];
-    return null;
-}
+//refactored to ../../selectors/selectors.js
+// function getCourseById(courses, id){
+//     const course = courses.filter(course => course.id == id);
+//     if(course.length) return course[0];
+//     return null;
+// }
 function mapStateToProps (state, ownProps) {
     const courseId = ownProps.params.id;  //from the path '/course/:id'
     let course={id: '', watchHref: '', title: '', authorId: '', length: '', category: ''};
