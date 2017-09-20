@@ -1,6 +1,5 @@
 import expect from 'expect';
-import {authorsFormattedForDropDown} from './selectors';
-import {getCourseById} from './selectors';
+import {authorsFormattedForDropDown, getCourseById} from './selectors';
 
 describe ('Author Selectors', () => {
     describe('authorsFormattedForDropdown', () => {
@@ -28,7 +27,7 @@ describe ('Course Selectors', () => {
                {id: '3', watchHref: '', title: 'My Course 3', authorId: '3', length: '', category: ''}               
             ];
             const expected = 
-                {id: '2', watchHref: '', title: 'My Course 2', authorId: '2', length: '', category: ''}
+                {id: '2', watchHref: '', title: 'My Course 2', authorId: '2', length: '', category: ''};
             
             expect(getCourseById(courses, "2")).toEqual(expected);
         });

@@ -23,7 +23,7 @@ describe('Manage Course Page', () => {
         saveButton.simulate('click');
 
         expect(wrapper.state().errors.title).toBe('Title must be at least 5 characters.');
-        console.log(wrapper.state().errors.title);
+        //console.log(wrapper.state().errors.title);
         
     });
 
@@ -42,7 +42,7 @@ describe('Manage Course Page', () => {
         saveButton.simulate('click');
 
         expect(wrapper.state().errors.title).toNotIncludeKey;
-        console.log(wrapper.state().errors.title);
+        //console.log(wrapper.state().errors.title);
     });
 
 });

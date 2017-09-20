@@ -19,7 +19,7 @@ class ProductsPage extends React.Component {
                 <h1>Products </h1>
                 {this.props.products.map(this.productRow)}
 
-                {/* <ProductApi /> */}
+                {/* <ProductList products={products} /> */}
             </div>
             
         );

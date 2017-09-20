@@ -2,10 +2,10 @@ import * as types from './actionTypes';
 import {beginAjaxCall} from './ajaxStatusActions';
 
 //For using Mock
-import productApi from '../api/mockProductApi';
+//import productApi from '../api/mockProductApi';
 
 //For using API
-//import productApi from '../api/ProductApi';
+import productApi from '../api/ProductApi';
 
 //this is our action creator
 export function loadProductsSuccess(products){

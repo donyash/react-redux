@@ -2,5 +2,6 @@ export default{
     authors: [],
     courses: [],
     products: [],
-    ajaxCallsInProgress: 0
+    ajaxCallsInProgress: 0,
+    session: false    //!!sessionStorage.jwt
 };
