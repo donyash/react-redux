@@ -3,5 +3,5 @@ export default{
     courses: [],
     products: [],
     ajaxCallsInProgress: 0,
-    session: false    //!!sessionStorage.jwt
+    session: !!sessionStorage.jwt
 };

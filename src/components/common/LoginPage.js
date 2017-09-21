@@ -3,11 +3,14 @@ import TextInput from '../common/TextInput';
 import {bindActionCreators} from 'redux';  
 import {connect} from 'react-redux';  
 import * as sessionActions from '../../actions/sessionActions';
+import toastr from 'toastr';
+import {browserHistory} from 'react-router';
 
 class LogInPage extends React.Component {  
   constructor(props) {
     super(props);
-    this.state = {credentials: {email: '', password: ''}};
+    this.state = {credentials: {email: '', password: ''}, errors: {}};
+
     this.onChange = this.onChange.bind(this);
     this.onSave = this.onSave.bind(this);
   }
@@ -21,7 +24,10 @@ class LogInPage extends React.Component {
 
   onSave(event) {
     event.preventDefault();
-    this.props.actions.logInUser(this.state.credentials);
+    this.props.actions.logInUser(this.state.credentials)
+    .catch(error =>{
+        toastr.error(error);
+    });
   }
 
   render() {
@@ -55,7 +61,8 @@ class LogInPage extends React.Component {
 
 //dpy added
 LogInPage.propTypes = {
-    actions: PropTypes.object.isRequired
+    actions: PropTypes.object.isRequired,
+    errors: React.PropTypes.object    //added
 };
 
 function mapDispatchToProps(dispatch) {  
