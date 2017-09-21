@@ -3,5 +3,7 @@ export default{
     courses: [],
     products: [],
     ajaxCallsInProgress: 0,
-    session: !!sessionStorage.jwt
+    session: (typeof sessionStorage === "undefined") 
+    ? false 
+    : !!sessionStorage.jwt
 };
