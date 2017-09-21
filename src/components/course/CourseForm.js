@@ -8,6 +8,7 @@ const CourseForm = ({
          <form>
              <h1>Manage Course</h1>
               <TextInput 
+                type="text"
                 name="title"
                 label="Title"
                 value={course.title}
@@ -24,6 +25,7 @@ const CourseForm = ({
                 error={errors.authorId}/>
 
                 <TextInput 
+                type="text"                
                 name="category"
                 label="Category"
                 value={course.category}
@@ -31,6 +33,7 @@ const CourseForm = ({
                 error={errors.category}/>
 
                 <TextInput 
+                type="text"
                 name="length"
                 label="Length"
                 value={course.length}

@@ -16,8 +16,10 @@ export default(
         <IndexRoute component={HomePage} />
         <Route path="/login" component={LogInPage} />
         <Route path="courses" component={CoursesPage} />
-        <Route path="course" component={ManageCoursePage} />
-        <Route path="course/:id" component={ManageCoursePage} />
+        <Route path="course" component={ManageCoursePage} 
+               onEnter={requireAuth}/>
+        <Route path="course/:id" component={ManageCoursePage}
+               onEnter={requireAuth} />
         <Route path="about" component={AboutPage} />
         <Route path="products" component={ProductsPage} />
         <Route path="product" component={DetailProductPage}  
