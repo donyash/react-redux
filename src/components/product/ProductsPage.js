@@ -3,6 +3,8 @@ import React, {PropTypes} from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import * as productActions from '../../actions/productActions';
+import ProductList from './ProductList';
+import {browserHistory} from 'react-router';
 
 class ProductsPage extends React.Component {
     constructor(props, context){
@@ -14,12 +16,13 @@ class ProductsPage extends React.Component {
   }
 
     render() {
+        const{products} = this.props;
+
         return (
             <div>
                 <h1>Products </h1>
-                {this.props.products.map(this.productRow)}
-
-                {/* <ProductList products={products} /> */}
+                {/* {this.props.products.map(this.productRow)} */}
+                <ProductList products={products} />
             </div>
             
         );
