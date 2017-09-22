@@ -4,10 +4,20 @@ import {connect} from 'react-redux';
 
 class HomePage extends React.Component {  
     constructor(props) {
-        super();
+        super(props);
+
+        //get cred email
+        //get access token
+        //this.state = {credentials: {email: '', password: ''}, errors: {}};
+
+        //let xx = sessionStorage.getItem('jwt');
+        //let yy = state.session();
+        //debugger;
+        
     }
     render(){
-
+//const{user} = this.props;
+//debugger;
         if(this.props.logged_in){
             return (
                 <div className="jumbotron">
@@ -29,6 +39,7 @@ class HomePage extends React.Component {
 }
 HomePage.propTypes = {
     logged_in: PropTypes.bool.isRequired
+    //user: PropTypes.string.isRequired
 };
 function mapStateToProps(state, ownProps) {  
     return {
