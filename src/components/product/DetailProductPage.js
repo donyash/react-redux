@@ -1,5 +1,27 @@
 //THIS NEEDS TO BE A FULL CLASS 
 //with load to perform fetch
+//
+// rename this to ManageProductPage
+//  update route.js
+// create a ProductForm page
+// put the markup in there and reference it ManageProductPage
+//
+// create another method in ProductApi for fetcing
+//   by id  
+//  see how tricky use of route param in ManageCoursePage
+//
+//
+// create dashboard component
+//  helpers for user and isloggedin
+//  see kurata for same usage
+//
+//start to pull out hard code domain for requests
+//
+//cleanup where needed
+//
+//more unit testing
+//
+// start reviewing React-Redux principles
 
 import React, {PropTypes} from 'react';
 
