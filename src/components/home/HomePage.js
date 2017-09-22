@@ -6,7 +6,7 @@ class HomePage extends React.Component{
 
         return (
             <div className="jumbotron">
-                <h1>Admin </h1>
+                <h1>Acme Web </h1>
                 <p> React, Redux and React Router</p>
                 <Link to="about" className="btn btn-primary btn-lg">Learn more</Link>
             </div>

@@ -2,58 +2,61 @@ import React from 'react';
 import TextInput from '../common/TextInput';
 import SelectInput from '../common/SelectInput';
 
-const CourseForm = ({
-    course, allAuthors, onSave, onChange, saving, errors}) =>{
+const ProductForm = ({product}) =>{
      return(
          <form>
-             <h1>Manage Course</h1>
-              <TextInput 
-                name="title"
-                label="Title"
-                value={course.title}
-                onChange={onChange}
-                error={errors.title}/>
+             <h1>Product Details</h1>
+                <div className="panel panel-primary">
+                     <div className="panel-heading">
+                         {product.productName}
+                     </div>
+                    
+                     <div className="panel-body">
+                         <div className="row">
+                             <div className="col-md-6">
+                                 <div className="row">
+                                     <div className="col-md-3">Name:</div>
+                                     <div className="col-md-6">{product.productName}</div>
+                                 </div>
+                                 <div className="row">
+                                     <div className="col-md-3">Code:</div>
+                                     <div className="col-md-6">{product.productCode}</div>
+                                 </div>
+                                 <div className="row">
+                                     <div className="col-md-3">Description:</div>
+                                     <div className="col-md-6">{product.description}</div>
+                                 </div>
+                                 <div className="row">
+                                     <div className="col-md-3">Availability:</div>
+                                     <div className="col-md-6">{product.releaseDate}</div>
+                                 </div>
 
-              <SelectInput 
-                name="authorId"
-                label="Author"
-                value={course.authorId}
-                defaultOption="Select Author"
-                options={allAuthors}
-                onChange={onChange}
-                error={errors.authorId}/>
+                                 <div className="row">
+                                    <div className="col-md-3">Price:</div>
+                                    <div className="col-md-6">{product.price}</div>
+                                </div>
+                
+                                <div className="col-md-6">
+                                    <img className="center-block img-responsive" 
+                                        src={product.imageUrl}
+                                        title={product.productName} />
+                                </div> 
 
-                <TextInput 
-                name="category"
-                label="Category"
-                value={course.category}
-                onChange={onChange}
-                error={errors.category}/>
 
-                <TextInput 
-                name="length"
-                label="Length"
-                value={course.length}
-                onChange={onChange}
-                error={errors.length}/>
-
-                <input 
-                type="submit"
-                disabled={saving}
-                value={saving ? 'Saving...' : 'Save'}
-                className="btn btn-primary"
-                onClick={onSave}
-                />
+                         </div>
+                     </div> 
+                 </div>
+                 <div className="panel-footer">
+                        <a className="btn btn-default" href="/products">
+                            <i className="glyphicon glyphicon-chevron-left"></i> Back
+                        </a>
+                </div>
+             </div>
          </form>
      );
     };
-    CourseForm.propTypes = {
-        course: React.PropTypes.object.isRequired,
-        allAuthors: React.PropTypes.array,
-        onSave: React.PropTypes.func.isRequired,
-        onChange: React.PropTypes.func.isRequired,
-        saving: React.PropTypes.bool,
-        errors: React.PropTypes.object
+    ProductForm.propTypes = {
+        product: React.PropTypes.object.isRequired
     };
 
-    export default CourseForm;
+    export default ProductForm;

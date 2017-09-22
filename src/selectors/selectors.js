@@ -13,3 +13,9 @@ export function getCourseById(courses, id){
     if(course.length) return course[0];
     return null;
 }
+
+export function getProductById(products, id){
+    const product = products.filter(product => product.productId == id);
+    if(product.length) return product[0];
+    return null;
+}

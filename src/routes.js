@@ -7,8 +7,7 @@ import CoursesPage from './components/course/CoursesPage';
 import ManageCoursePage from './components/course/ManageCoursePage'; //eslint-disable-line import/no-named-as-default
 import ProductsPage from './components/product/ProductsPage';
 import LogInPage from './components/common/LoginPage';
-import DetailProductPage from './components/product/DetailProductPage';
-
+import ManageProductPage from './components/product/ManageProductPage';
 
 export default(
 
@@ -22,9 +21,9 @@ export default(
                onEnter={requireAuth} />
         <Route path="about" component={AboutPage} />
         <Route path="products" component={ProductsPage} />
-        <Route path="product" component={DetailProductPage}  
+        <Route path="product" component={ManageProductPage}  
                onEnter={requireAuth} /> 
-        <Route path="product/:id" component={DetailProductPage} 
+        <Route path="product/:id" component={ManageProductPage} 
                onEnter={requireAuth} />
     </Route>
 );
