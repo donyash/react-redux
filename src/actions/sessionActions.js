@@ -28,7 +28,7 @@ export function logInUser(credentials) {
         sessionStorage.setItem('jwt', response.jwt);
         dispatch(loginSuccess());
         toastr.success('Log in successful');
-        browserHistory.push('/');
+        browserHistory.push('/dashboard');
       }
       else{
         dispatch(loginFailure());
