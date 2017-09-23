@@ -25,7 +25,7 @@ export function logInUser(credentials) {
     .then(response => {
       //debugger;
       if(response.access_token){
-        sessionStorage.setItem('jwt', response.jwt);
+        sessionStorage.setItem('jwt', response.access_token);
         dispatch(loginSuccess());
         toastr.success('Log in successful');
         browserHistory.push('/dashboard');

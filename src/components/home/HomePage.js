@@ -23,6 +23,7 @@ class HomePage extends React.Component {
                 <div className="jumbotron">
                     <h1>Acme Web </h1>
                     <p> React, Redux and React Router</p>
+                        Thank you authenticated user.
                 </div>
             );
         }else{
