@@ -11,9 +11,10 @@ export function loginFailure() {
   return {type: types.LOG_IN_FAILURE};
 }
 
-
 export function logOutUser() {  
   sessionStorage.removeItem('jwt');
+  sessionStorage.removeItem('user');
+  
   browserHistory.push('/');
   toastr.info('Log out successful');
   return {type: types.LOG_OUT};
@@ -26,6 +27,7 @@ export function logInUser(credentials) {
       //debugger;
       if(response.access_token){
         sessionStorage.setItem('jwt', response.access_token);
+        sessionStorage.setItem('user', credentials.email);
         dispatch(loginSuccess());
         toastr.success('Log in successful');
         browserHistory.push('/dashboard');

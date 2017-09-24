@@ -5,25 +5,19 @@ import {connect} from 'react-redux';
 class HomePage extends React.Component {  
     constructor(props) {
         super(props);
-
-        //get cred email
-        //get access token
-        //this.state = {credentials: {email: '', password: ''}, errors: {}};
-
-        //let xx = sessionStorage.getItem('jwt');
-        //let yy = state.session();
-        //debugger;
         
     }
     render(){
-//const{user} = this.props;
+//const{profile} = this.props;
 //debugger;
         if(this.props.logged_in){
             return (
                 <div className="jumbotron">
                     <h1>Acme Web </h1>
                     <p> React, Redux and React Router</p>
-                        Thank you authenticated user.
+                    <h4>User:{this.props.profile.user} </h4>
+                    <p>Token:</p> 
+                    {this.props.profile.token}
                 </div>
             );
         }else{
@@ -39,12 +33,13 @@ class HomePage extends React.Component {
     }
 }
 HomePage.propTypes = {
-    logged_in: PropTypes.bool.isRequired
-    //user: PropTypes.string.isRequired
+    logged_in: PropTypes.bool.isRequired,
+    profile: PropTypes.array.isRequired
 };
 function mapStateToProps(state, ownProps) {  
     return {
-        logged_in: state.session
+        logged_in: state.session,
+        profile: state.profile
     };
   }
 
