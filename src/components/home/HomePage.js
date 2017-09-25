@@ -1,6 +1,7 @@
 import React, {PropTypes} from 'react';
 import {Link} from 'react-router';
 import {connect} from 'react-redux';
+import Profile from '.././common/Profile';
 
 class HomePage extends React.Component {  
     constructor(props) {
@@ -8,16 +9,18 @@ class HomePage extends React.Component {
         
     }
     render(){
-//const{profile} = this.props;
+const{profile} = this.props;
 //debugger;
         if(this.props.logged_in){
             return (
                 <div className="jumbotron">
                     <h1>Acme Web </h1>
                     <p> React, Redux and React Router</p>
-                    <h4>User:{this.props.profile.user} </h4>
+                    {/* <h4>User:{this.props.profile.user} </h4>
                     <p>Token:</p> 
-                    {this.props.profile.token}
+                    {this.props.profile.token} */}
+                    <Profile profile={profile} />
+
                 </div>
             );
         }else{
@@ -34,7 +37,7 @@ class HomePage extends React.Component {
 }
 HomePage.propTypes = {
     logged_in: PropTypes.bool.isRequired,
-    profile: PropTypes.array.isRequired
+    profile: PropTypes.object.isRequired
 };
 function mapStateToProps(state, ownProps) {  
     return {

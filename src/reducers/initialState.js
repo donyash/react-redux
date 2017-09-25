@@ -8,6 +8,10 @@ export default{
     : !!sessionStorage.jwt
     ,profile: (typeof sessionStorage === "undefined") 
     ? []
-    : [ {user: sessionStorage.getItem('user'), token: sessionStorage.getItem('jwt')}]
+    :  {user: sessionStorage.getItem('user'), token: sessionStorage.getItem('jwt')}
+    //: [ {user: sessionStorage.getItem('user'), token: sessionStorage.getItem('jwt')}]  worked as array, but warning on home page load
+    
+
+
     //: { profile: {user: "myself", token: sessionStorage.getItem('jwt')}}
 };
