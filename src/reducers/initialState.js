@@ -13,9 +13,9 @@ export default{
     // //above was working as-is
 
     //new implementation below
-    session: (typeof sessionStorage === "undefined"  || typeof(sessionStorage === null)) 
-    ?  {}
-    :  {"logged_in": true, "user": sessionStorage.getItem('user'), "token": sessionStorage.getItem('jwt')}
+     session: (typeof sessionStorage === "undefined") 
+     ?  {"logged_in": false, "user": null, "token": null}
+     :  {"logged_in": !!sessionStorage.jwt, "user": sessionStorage.getItem('user'), "token": sessionStorage.getItem('jwt')}
     
     //: [ {user: sessionStorage.getItem('user'), token: sessionStorage.getItem('jwt')}]  worked as array, but warning on home page load
     //the object fixed the warning on the initial home page load
