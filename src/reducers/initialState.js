@@ -13,7 +13,7 @@ export default{
     // //above was working as-is
 
     //new implementation below
-    session: (typeof sessionStorage === "undefined") 
+    session: (typeof sessionStorage === "undefined"  || typeof(sessionStorage === null)) 
     ?  {}
     :  {"logged_in": true, "user": sessionStorage.getItem('user'), "token": sessionStorage.getItem('jwt')}
     
