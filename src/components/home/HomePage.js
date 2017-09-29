@@ -6,12 +6,12 @@ import Profile from '.././common/Profile';
 class HomePage extends React.Component {  
     constructor(props) {
         super(props);
-        
+       
     }
     render(){
-const{profile} = this.props;
+//const{profile} = this.props;
 //debugger;
-        if(this.props.logged_in){
+        if(this.props.profile.logged_in){
             return (
                 <div className="jumbotron">
                     <h1>Acme Web </h1>
@@ -19,7 +19,7 @@ const{profile} = this.props;
                     {/* <h4>User:{this.props.profile.user} </h4>
                     <p>Token:</p> 
                     {this.props.profile.token} */}
-                    <Profile profile={profile} />
+                    <Profile profile={this.props.profile} />
 
                 </div>
             );
@@ -36,13 +36,15 @@ const{profile} = this.props;
     }
 }
 HomePage.propTypes = {
-    logged_in: PropTypes.bool.isRequired,
+    //logged_in: PropTypes.bool.isRequired,
     profile: PropTypes.object.isRequired
 };
 function mapStateToProps(state, ownProps) {  
     return {
-        logged_in: state.session,
-        profile: state.profile
+        //logged_in: state.session,
+        //profile: state.profile
+        profile: state.session
+        
     };
   }
 

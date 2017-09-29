@@ -65,9 +65,15 @@ LogInPage.propTypes = {
     errors: React.PropTypes.object    //added
 };
 
+function mapStateToProps(state, ownProps) {  
+  return {
+      logged_in: state.session,
+      profile: state.profile
+  };
+}
 function mapDispatchToProps(dispatch) {  
   return {
     actions: bindActionCreators(sessionActions, dispatch)
   };
 }
-export default connect(null, mapDispatchToProps)(LogInPage);
+export default connect(mapStateToProps, mapDispatchToProps)(LogInPage);

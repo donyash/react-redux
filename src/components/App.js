@@ -7,9 +7,12 @@ import {bindActionCreators} from 'redux';
 
 class App extends React.Component {
     render() {
+       // debugger;
+       // const{profile} = this.props;
+        
         return (
            <div className="container-fluid">
-               <Header loading={this.props.loading} logged_in={this.props.logged_in}/>
+               <Header loading={this.props.loading} profile={this.props.profile}/>
                 {this.props.children}
            </div> 
         );
@@ -19,13 +22,14 @@ class App extends React.Component {
 App.propTypes = {
     children: PropTypes.object.isRequired,
     loading: PropTypes.bool.isRequired,
-    logged_in: PropTypes.bool.isRequired
+    profile: PropTypes.object.isRequired
 };
 
 function mapStateToProps (state, ownProps) {
     return {
         loading: state.ajaxCallsInProgress > 0,
-        logged_in: state.session
+        profile: state.session
+        //logged_in: state.session
     };
 }
 

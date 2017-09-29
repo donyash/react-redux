@@ -5,19 +5,21 @@ import {browserHistory} from 'react-router';
 import toastr from 'toastr';
 
 export function loginSuccess() {  
+  //alert('sessionAction LOG IN SUCCESS...' );
   return {type: types.LOG_IN_SUCCESS
-    ,logged_in: true,  profile: {user: sessionStorage.getItem('user'), token: sessionStorage.getItem('jwt')}};
+   // ,logged_in: true,  profile: {user: sessionStorage.getItem('user'), token: sessionStorage.getItem('jwt')}};
+   ,"profile": {"logged_in": true, "user": sessionStorage.getItem('user'), "token": sessionStorage.getItem('jwt')}};
 }
 
 export function loginFailure() {  
-  return {type: types.LOG_IN_FAILURE};
+  //alert('sessionAction LOG IN FAILURE...' );
+  return {type: types.LOG_IN_FAILURE, "profile": {"logged_in": false, "user": null, "token": null }};
 }
 
 export function receiveLogout() {
-  return {
-    type: types.LOG_OUT
-    ,logged_in: false,  profile: {user: "", token: null}
-  };
+  //alert('sessionAction receive log out...' );
+  //return {type: types.LOG_OUT,  profile: {"profile": {"logged_in": false, "user": null, "token": null}}};
+  return {type: types.LOG_OUT,"profile": {"logged_in": false, "user": null, "token": null }};
 }
 
 export function logOutUser() {  
@@ -27,14 +29,9 @@ export function logOutUser() {
     sessionStorage.removeItem('user');
     toastr.info('Log out successful');
     dispatch(receiveLogout());
+    browserHistory.push('/'); 
   };
 }
-  // sessionStorage.removeItem('jwt');
-  // sessionStorage.removeItem('user');
-  
-  // browserHistory.push('/');
-  // toastr.info('Log out successful');
-  // return {type: types.LOG_OUT};
 
 export function logInUser(credentials) {  
   return function(dispatch) {
@@ -46,7 +43,7 @@ export function logInUser(credentials) {
         sessionStorage.setItem('user', credentials.email);
         dispatch(loginSuccess());
         toastr.success('Log in successful');
-        browserHistory.push('/dashboard');
+        browserHistory.push('/');   //dashboard
       }
       else{
         dispatch(loginFailure());

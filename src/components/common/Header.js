@@ -19,7 +19,9 @@ logOut(event) {
 }
 
  render() {
-    if(this.props.logged_in){
+    //const{profile} = this.props;
+    
+    if(this.props.profile.logged_in){
     return (
         <nav>
             <IndexLink to="/" activeClassName="active">Home</IndexLink>
@@ -59,13 +61,13 @@ logOut(event) {
 
 Header.propTypes = {
     loading: PropTypes.bool.isRequired,
-    logged_in: PropTypes.bool.isRequired,
+    profile: PropTypes.object.isRequired,
     actions: PropTypes.object.isRequired
 };
 
 function mapStateToProps(state, ownProps) {  
     return {
-        logged_in: state.session
+        profile: state.session
     };
   }
 

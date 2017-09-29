@@ -4,7 +4,7 @@ import toastr from 'toastr';
 
 export function getUserTokenSuccess(token){
     //alert('message from profileAction');
-    //toastr.warning(token);
+    toastr.warning(token);
       return{ type: "USER_TOKEN_SUCCESS", token};
   }
   
