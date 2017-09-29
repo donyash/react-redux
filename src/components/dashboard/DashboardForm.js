@@ -2,7 +2,7 @@ import React from 'react';
 import TextInput from '../common/TextInput';
 import SelectInput from '../common/SelectInput';
 
-const DashboardForm = ({user, onClick, onLogOut}) =>{
+const DashboardForm = ({profile, onClick, onLogOut}) =>{
   
 
      return(
@@ -17,7 +17,7 @@ const DashboardForm = ({user, onClick, onLogOut}) =>{
                                 onClick={onClick}>
                             <span aria-hidden="true">&times;</span>
                         </button>
-                        {user} authenticated
+                        {profile.user} authenticated
                     </div>
                 </div>
 
@@ -28,7 +28,7 @@ const DashboardForm = ({user, onClick, onLogOut}) =>{
                         <div className="panel-body">
                             <div className="row">
                                 <div className="text-center">You are logged in.</div>
-                                    <h3 className="text-center">{user}</h3>                      
+                                    <h3 className="text-center">{profile.user}</h3>                      
                                     <div className="text-center">
                                             <div>
                                                 <button type="button" 
@@ -45,7 +45,7 @@ const DashboardForm = ({user, onClick, onLogOut}) =>{
      
     };
     DashboardForm.propTypes = {
-        user: React.PropTypes.string.isRequired,
+        profile: React.PropTypes.object.isRequired,
         onClick: React.PropTypes.func.isRequired,
         onLogOut: React.PropTypes.func.isRequired
     };

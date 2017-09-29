@@ -27,7 +27,7 @@ class DashboardPage extends React.Component {
     render() {
         return (
             <div>
-                <DashboardForm user={"donyash@hotmail.com"} 
+                <DashboardForm profile={this.props.profile} 
                                onClick={this.closeAlert}
                                onLogOut={this.logout}/>
             </div>
@@ -37,15 +37,15 @@ class DashboardPage extends React.Component {
 }
 
 DashboardPage.propTypes = {
-    actions: PropTypes.object.isRequired
-    //user: PropTypes.string.isRequired
+    actions: PropTypes.object.isRequired,
+    profile: PropTypes.object.isRequired
 };
 
 function mapStateToProps(state, ownProps){
     //debugger;
     return{
-            user: state.user,
-            logged_in: state.session
+            profile: state.session
+            //,logged_in: state.session
     };
 }
 function mapDispatchToProps(dispatch){
