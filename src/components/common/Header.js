@@ -6,7 +6,6 @@ import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';  
 import * as sessionActions from '../../actions/sessionActions';
 
-//const Header = ({loading, logged_in}) => {
 class Header extends React.Component {  
     constructor(props) {
         super();
@@ -19,7 +18,6 @@ logOut(event) {
 }
 
  render() {
-    //const{profile} = this.props;
     
     if(this.props.profile.logged_in){
     return (
@@ -35,7 +33,6 @@ logOut(event) {
             <Link to="/courses" activeClassName="active">Courses</Link>
             {this.props.loading && <LoadingDots interval={100} dots={20} />}
             {" | "}
-            {/* {this.props.logged_in && <a href="/logout">log out</a>} */}
             <a href="/logout" onClick={this.logOut}>log out</a>
         </nav>
     );

@@ -13,7 +13,6 @@ const rootReducer = combineReducers({
     products,
     ajaxCallsInProgress,
     session
-    //,profile   //need to do some refactoring here...see sessionReducer 
 });
 
 export default rootReducer;

@@ -1,15 +1,5 @@
 import delay from './delay';
 
-
-
-// function fetchProducts() {
-//   return dispatch => {
-//     return fetch(`http://localhost:60323/api/Products`)
-//       .then(response => response.json());
-//   };
-// }
-// const products = fetchProducts();
-
 // This file mocks a web API by working with the hard-coded data below.
 // It uses setTimeout to simulate the delay of an AJAX call.
 // All calls return promises.

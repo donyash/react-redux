@@ -20,8 +20,6 @@ const store = configureStore();
 store.dispatch(loadCourses());
 store.dispatch(loadAuthors());
 store.dispatch(loadProducts());
-//store.dispatch(getUserToken());
-//replacement for this...move to sessionActions
 
 render(
     <Provider store={store}>
