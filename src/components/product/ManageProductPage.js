@@ -13,6 +13,7 @@ export class ManageProductPage extends React.Component {
         this.state = {
             product: Object.assign({}, props.product)
         };
+        this.getStarRating = this.getStarRating.bind(this);
     }
 
     componentWillReceiveProps(nextProps){
@@ -22,9 +23,16 @@ export class ManageProductPage extends React.Component {
         }
     }
 
+    getStarRating(event){
+        event.preventDefault();
+        toastr.warning('message from getStarRating');
+    }
+
     render() {
         return (
-             <ProductForm product={this.props.product} />
+             <ProductForm 
+             product={this.props.product}
+             onGetStarRating={this.getStarRating} />
         );
     }
 }

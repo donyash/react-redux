@@ -2,7 +2,7 @@ import React from 'react';
 import TextInput from '../common/TextInput';
 import SelectInput from '../common/SelectInput';
 
-const ProductForm = ({product}) =>{
+const ProductForm = ({product, onGetStarRating}) =>{
      return(
          <form>
              <h1>Product Details</h1>
@@ -41,7 +41,12 @@ const ProductForm = ({product}) =>{
                                         src={product.imageUrl}
                                         title={product.productName} />
                                 </div> 
-
+                                <div className="col-sm-3">
+                                    <button  className="btn btn-warning"
+                                             onClick={onGetStarRating} >
+                                    Get Star Rating
+                                    </button>
+                                </div>
 
                          </div>
                      </div> 
@@ -56,7 +61,8 @@ const ProductForm = ({product}) =>{
      );
     };
     ProductForm.propTypes = {
-        product: React.PropTypes.object.isRequired
+        product: React.PropTypes.object.isRequired,
+        onGetStarRating: React.PropTypes.func.isRequired
     };
 
     export default ProductForm;
