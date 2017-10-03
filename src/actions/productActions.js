@@ -20,7 +20,16 @@ export function updateProductSuccess(product){
     return{type: types.UPDATE_PRODUCT_SUCCESS, product};
 }
 
+// export function loginSuccess() {  
+//     //alert('sessionAction LOG IN SUCCESS...' );
+//     return {type: types.LOG_IN_SUCCESS
+//      ,"profile": {"logged_in": true, "user": sessionStorage.getItem('user'), "token": sessionStorage.getItem('jwt')}};
+//   }
 
+export function loadProductByIdSuccess(product){
+    return{ type: types.LOAD_PRODUCT_BY_ID_SUCCESS, 
+        product, "rating": product.starRating};
+}
 
 //thunk
 export function loadProducts(){
@@ -30,6 +39,21 @@ export function loadProducts(){
         .then(
             products => {
                 dispatch(loadProductsSuccess(products));
+        })
+        .catch(
+            error => {
+                throw (error);
+        });
+    };
+}
+export function loadProductById(theId){
+    return function (dispatch){
+        dispatch (beginAjaxCall());
+        
+        return productApi.getProductById(theId)
+        .then(
+            product => {
+                dispatch(loadProductByIdSuccess(product));
         })
         .catch(
             error => {

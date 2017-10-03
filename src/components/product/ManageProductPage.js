@@ -11,7 +11,8 @@ export class ManageProductPage extends React.Component {
         super(props, context);
 
         this.state = {
-            product: Object.assign({}, props.product)
+            product: Object.assign({}, props.product),
+            rating: Object.assign({}, props.rating)  //ok to set state directy
         };
         this.getStarRating = this.getStarRating.bind(this);
     }
@@ -20,25 +21,32 @@ export class ManageProductPage extends React.Component {
         if(this.props.product.productId != nextProps.product.productId){
             //necessary to populate form when existing product is loaded directly
             this.setState({product: Object.assign({}, nextProps.product)});
+            this.setState({rating: Object.assign({}, nextProps.rating)});
         }
     }
 
     getStarRating(event){
         event.preventDefault();
-        toastr.warning('message from getStarRating');
+        //toastr.warning('message from getStarRating');
+        //const productId = event.ownProps.params.id;  //from the path '/product/:id'
+        const productId = 2;
+        this.props.actions.loadProductById(productId);  //will pass id 
     }
 
     render() {
         return (
              <ProductForm 
              product={this.props.product}
-             onGetStarRating={this.getStarRating} />
+             onGetStarRating={this.getStarRating} 
+             rating={this.props.rating}/>
         );
     }
 }
 
 ManageProductPage.propTypes = {
-    product: PropTypes.object.isRequired
+    product: PropTypes.object.isRequired,
+    actions: PropTypes.object.isRequired,
+    rating: PropTypes.number
 };
 ManageProductPage.contextTypes = {
     router: PropTypes.object
@@ -48,14 +56,17 @@ ManageProductPage.contextTypes = {
 function mapStateToProps (state, ownProps) {
     const productId = ownProps.params.id;  //from the path '/product/:id'
     let product={id: '', name: '', description: '', availability: '', code: ''};
-    //debugger;
 
     if(productId && state.products.length > 0){
         product = getProductById(state.products, productId);
     }
    
+    let rating=null;
+    rating = state.products.rating; 
+    //debugger;
     return {
-        product: product
+        product: product,
+        rating: rating    //this was not the same object
     };
 }
 
